@@ -6,27 +6,24 @@ import { addDate, clearDate } from '../actions'
 class ListSample extends Component {
   render() {
     console.log('render')
+    const { clear, add, items } = this.props
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent onPress={()=>{
-              this.props.clear()
-            }}>
+            <Button transparent onPress={clear}>
               <Icon name='trash' />
             </Button>
           </Left>
           <Right>
-            <Button transparent onPress={()=>{
-              this.props.add()
-            }}>
+            <Button transparent onPress={add}>
               <Icon name='add' />
             </Button>
           </Right>
         </Header>
         <Content>
           <List
-            dataArray={this.props.items}
+            dataArray={items}
             renderRow={(item) =>
               <ListItem>
                 <Text>{item}</Text>
